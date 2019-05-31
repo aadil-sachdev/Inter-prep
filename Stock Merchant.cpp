@@ -9,23 +9,22 @@ int main()
     {
         cin>>ar[i];
     }
-    sort(ar,ar+n);
     int counter=0;
-    for(int i=0;i<n;i++)
-    {
-        if(ar[i]<0)
-        continue;
-        for(int j=i+1;j<n;j++)
+    sort(ar,ar+n);
+    int i=0;
+    int j;
+    while(i<n)
+    { 
+        j=i+1;
+        int add=0;
+        while(ar[j]==ar[i])
         {
-            if(ar[i]==ar[j])
-            {
-                counter++;
-                ar[i]=-ar[i];
-                ar[j]=-ar[j];
-                break;
-            }
-
+            add++;
+            j++;
+           
         }
+        i+=(add+1);
+        counter=counter+ceil(float(add)/2);
     }
     cout<<counter;
-}
+    }
