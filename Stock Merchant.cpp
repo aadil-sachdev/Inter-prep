@@ -9,7 +9,6 @@ int main()
     {
         cin>>ar[i];
     }
-    sort(ar,ar+n);
     int counter=0;
     for(int i=0;i<n;i++)
     {
@@ -28,4 +27,3 @@ int main()
         }
     }
     cout<<counter;
-}
