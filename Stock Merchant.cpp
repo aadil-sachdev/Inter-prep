@@ -10,7 +10,7 @@ int main()
         cin>>ar[i];
     }
     int counter=0;
-    for(int i=0;i<n;i++)
+    for(int i=0;i<n-1;i++)
     {
         if(ar[i]<0)
         continue;
