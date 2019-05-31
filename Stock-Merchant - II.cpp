@@ -13,7 +13,7 @@ int main()
     sort(ar,ar+n);
     int i=0;
     int j;
-    while(i<n)
+    while(i<n-1)
     { 
         j=i+1;
         int add=0;
