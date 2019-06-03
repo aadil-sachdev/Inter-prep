@@ -2,26 +2,45 @@
 using namespace std;
 int main()
 {
-    int test;
-    cin>>test;
-
-    for(int i=0;i<test;i++)
+    int step;
+    cin>>step;
+    for(int i=0;i<step;i++)
     {
+        int red_flag=0;
         int counter=0;
         int n;
         cin>>n;
-        int arr[n];
+        int a[n];
+        int b[n];
         for(int j=0;j<n;j++)
-            cin>>arr[i];
+            {
+                cin>>a[j];
+                b[j]=j+1;
+            }   
         for(int j=0;j<n;j++)
         {
-            if(abs(arr[i]-(i+1))>2)
+            int flag=0;
+            int temp;
+            if(a[j]!=b[j])
+            {
+                temp=a[j];
+                for(int k=temp-1;k>j;k--)
+                {
+                    b[k]=b[k-1];
+                    counter++;
+                    flag++;
+                }
+                b[j]=temp;
+            }
+            if(flag>2)
+            {
                 cout<<"Too chaotic"<<endl;
-            else if(arr[i]>arr[i+1]&&arr[i]==i+1)
-                counter++;
-            else if(arr[i]>arr[i+1])
-                counter+=abs(arr[i]-(i+1));
+                red_flag++;
+                break;
+            }
         }
-        cout<<counter<<endl;   
+        if(!red_flag)
+        cout<<counter<<endl;
+
     }
 }
