@@ -17,20 +17,34 @@ int main()
                 cin>>a[j];
                 b[j]=j+1;
             }   
-        for(int j=0;j<n;j++)
+        for(int j=0;j<n-1;j++)
         {
             int flag=0;
             int temp;
             if(a[j]!=b[j])
             {
-                temp=a[j];
-                for(int k=temp-1;k>j;k--)
+                int holder=abs(a[j]-(j+1));
+                int holder1=holder;
+                while(holder1)
                 {
-                    b[k]=b[k-1];
+                    temp=b[j];
+                    int k=j;
+                    while(holder)
+                    {
+                        b[k]=b[k+1];
+                        k++;
+                        holder--;
+                    }
                     counter++;
-                    flag++;
+                    //cout<<j<<" "<<counter<<endl;
+                    flag++;            
+                    b[k]=temp;
+                    cout<<j<<"     ";
+                    for(int l=0;l<n;l++)
+                    cout<<b[l]<<" ";
+                    cout<<endl;
+                    holder1--;
                 }
-                b[j]=temp;
             }
             if(flag>2)
             {
