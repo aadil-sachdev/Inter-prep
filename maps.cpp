@@ -3,7 +3,7 @@ using namespace std;
 int main()
 {
     map<string ,string>phonebook;
-    long int n;
+    int n;
     cin>>n;
     string phone,name;
     for(int i=0;i<n;i++)
