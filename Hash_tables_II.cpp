@@ -22,8 +22,8 @@ int main()
     for(it=line.begin();it!=line.end();it++)
     {
         if(it->second>mag[it->first])
-        success++;
-        break;
+        {success++;
+        break;}
     }
     if(success)
     cout<<"No";
