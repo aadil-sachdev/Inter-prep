@@ -21,7 +21,8 @@ int main()
     map<string,int>::iterator it;
     for(it=line.begin();it!=line.end();it++)
     {
-        if(it->second>mag[it->first])
+        if(line[it->first]>mag[it->first])
+        //if(it->second>mag[it->first])
         {success++;
         break;}
     }
