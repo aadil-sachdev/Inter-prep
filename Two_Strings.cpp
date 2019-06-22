@@ -21,7 +21,7 @@ int main()
 
 int strr(string s1, string s2)
 {
-    std::string::iterator it;
+    string::iterator it;
     map<char,int> iden1;
     map<char,int> iden2;
     for(it=s1.begin();it!=s1.end();it++)
