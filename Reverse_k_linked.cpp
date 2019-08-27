@@ -1,3 +1,4 @@
+{
 #include<bits/stdc++.h>
 using namespace std;
 /* Link list node */
@@ -42,7 +43,8 @@ void printList(struct node *node)
         printf("%d ", node->data);
         node = node->next;
     }
-cout<<" ";
+printf("
+");
 }
 /* Drier program to test above function*/
 int main(void)
@@ -60,7 +62,7 @@ int main(void)
      return(0);
 }
 
-
+}
 /*This is a function problem.You only need to complete the function given below*/
 /*
   Reverse a linked list
@@ -76,31 +78,33 @@ int main(void)
 
 
 struct node *reverse (struct node *head, int k)
-{
+{ int count=k;
     node *prev,*ptr,*cur,*nex;
     cur=head;
     ptr=head;
-    while(k--&&cur!=NULL)
+    while(count--&&cur!=NULL)
     {
         nex=cur->next;
         cur->next=prev;
         prev=cur;
         cur=nex;
     }
+    count=k;
     head=prev;
     ptr->next=cur;
     prev=ptr;
     while(cur!=NULL)
     {
-        while(k--&&cur!=NULL)
+        while(count--&&cur!=NULL)
         {
             nex=cur->next;
             cur->next=prev;
             prev=cur;
             cur=nex;
         }
-        ptr->next=prev;
+        count=k;
         ptr->next->next=cur;
+        ptr->next=prev;
         while(prev->next!=cur)
         {
             prev=prev->next;
