@@ -9,8 +9,12 @@ int main()
     while(itr<=b)
     {
         if(itr%10==a)
-        counter++;
-        if(itr/10==a)
+            counter++;
+        if((itr/10)%10==a)
+        {
+            counter++;
+        }
+        if(itr/100==a)
         {
             itr++;
             counter++;
@@ -20,5 +24,3 @@ int main()
     }
     cout<<counter;
 }
-
-
