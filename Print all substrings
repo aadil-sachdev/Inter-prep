@@ -1,0 +1,30 @@
+#include <iostream>
+using namespace std;
+
+void fun(string s,int start,int end, string cur="")
+{
+    if(start==end)
+    {
+        cout<<cur<<" ";
+        return;
+    }
+    cout<<cur<<" ";
+    for(int i=start;i<end;i++)
+    {
+        cur=cur+s[i];
+        fun(s,i+1,end,cur);
+        cur.erase(cur.size()-1);
+    }
+}
+
+
+
+
+int main() {
+	string s;
+	cin>>s;
+	int start=0;
+	int end=s.length();
+	fun(s,start,end);
+	return 0;
+}
