@@ -1,0 +1,71 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+int rescueh(int arr[3][3],int si,int sj,int ei,int ej,int **dp)
+{
+    if(si==ei&&sj==ej)
+    {
+        return arr[ei][ej];
+    }
+    if(si>ei||sj>ej)
+    {
+        return INT_MAX;
+    }
+    if(dp[si][sj]>-1)
+    {
+        return dp[si][sj];
+    }
+    
+    int op1=rescueh(arr,si,sj+1,ei,ej,dp);
+    int op2=rescueh(arr,si+1,sj+1,ei,ej,dp);
+    int op3=rescueh(arr,si+1,sj,ei,ej,dp);
+    int result=min(op1,min(op2,op3));
+    dp[si][sj]=arr[si][sj]+result;
+    return arr[si][sj]+result;
+    
+}
+
+
+int rescue(int arr[3][3],int m, int n)
+{
+    int **dp=new int*[m];
+    for(int i=0;i<m;i++)
+    {
+        dp[i]=new int[n];
+        for(int j=0;j<n;j++)
+        {
+            dp[i][j]=-1;
+        }
+    }
+    return rescueh(arr,0,0,m-1,n-1,dp);
+}
+
+
+
+
+
+int main()
+{
+    int m=3,n=3;
+    int arr[3][3]={};
+    for(int i=0;i<m;i++)
+    {
+        for(int j=0;j<n;j++)
+        {
+            cin>>arr[i][j];
+        }
+    }
+    for(int i=0;i<m;i++)
+    {
+        for(int j=0;j<n;j++)
+        {
+            cout<<arr[i][j]<<" ";
+        }
+        cout<<endl;
+    }
+    
+    int ans=rescue(arr,m,n);
+    cout<<ans;
+    
+    
+}
